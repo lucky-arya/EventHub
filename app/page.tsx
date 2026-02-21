@@ -11,7 +11,7 @@ const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL
 
 const Page = async () => {
 
-  'user cache' // Enable Next.js 13.4+ caching for this page
+  'use cache' // Enable Next.js 13.4+ caching for this page
   cacheLife('hours')
 
     const response = await fetch(`${BASE_URL}/api/events`)
