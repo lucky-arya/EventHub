@@ -4,11 +4,15 @@ import { events } from '@/lib/constants'
 import { time } from 'console'
 import React from 'react'
 import { IEvent } from '@/database/event.model'
+import { cacheLife } from 'next/cache'
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL
 
 
 const Page = async () => {
+
+  'user cache' // Enable Next.js 13.4+ caching for this page
+  cacheLife('hours')
 
     const response = await fetch(`${BASE_URL}/api/events`)
 
@@ -20,7 +24,7 @@ const Page = async () => {
       <p className='text-center mt-5'>Hackathons, Meetups, and Conferences, All in One Place</p>
       <ExploreBtn />
 
-    <div className='mt-20 space-y-7'>
+    <div className='mx-8 mt-20 space-y-7'>
       <h3>Featured Events</h3>
       <ul className='events'>
         {events && events.length>0 && events.map((event: IEvent) => (

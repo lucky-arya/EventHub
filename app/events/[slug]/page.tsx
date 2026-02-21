@@ -33,7 +33,7 @@ const EventTags = ({tags} : {tags : string[]})=>(
   <div className='flex flex-row gap-1.5 flex-wrap'>
 
     {tags.map(tag=>(
-      <div className="pill" key={tag} ></div>
+      <div className="pill" key={tag}>{tag}</div>
     ))}
 
   </div>
@@ -43,7 +43,7 @@ const EventDetailsPage = async  ({ params }: { params: Promise<{ slug: string }>
   const { slug } = await params;
 
   const request = await fetch(`${BASE_URL}/api/events/${slug}`)
-  const { event : {description , image ,overview , date ,time,location, mode,agenda,audience ,organiser ,tags} } = await request.json()
+  const { event : {description , image ,overview , date ,time,location, mode,agenda,audience ,organizer ,tags} } = await request.json()
 
   if(!description) return notFound()
 
@@ -53,7 +53,7 @@ const EventDetailsPage = async  ({ params }: { params: Promise<{ slug: string }>
   const similarEvents = await getSimilareventsBySlug(slug)
 
   return (
-    <section id="event">
+    <section id="event" className='mx-auto max-w-7xl px-4 py-10'>
       <div className='header'>
         <h1>Event Description </h1>
       <p >{description}</p>
@@ -83,7 +83,7 @@ const EventDetailsPage = async  ({ params }: { params: Promise<{ slug: string }>
           <section className='flex-col-gap-2'>
 
             <h2>About the Organiser</h2>
-            <p>{organiser}</p>
+            <p>{organizer}</p>
           </section>
 
           <EventTags tags={tags} />
