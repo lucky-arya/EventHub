@@ -5,18 +5,14 @@ import { time } from 'console'
 import React from 'react'
 import { IEvent } from '@/database/event.model'
 import { cacheLife } from 'next/cache'
-
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL
-
+import { getAllEvents } from '@/lib/actions/event.actions'
 
 const Page = async () => {
 
   'use cache' // Enable Next.js 13.4+ caching for this page
   cacheLife('hours')
 
-    const response = await fetch(`${BASE_URL}/api/events`)
-
-    const {events} = await response.json()
+    const events = await getAllEvents()
 
   return (
     <section>

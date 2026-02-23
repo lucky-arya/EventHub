@@ -6,9 +6,9 @@ const Footer = () => {
   return (
     <footer className="glass mt-auto">
       <nav className="flex flex-row justify-between mx-auto container sm:px-10 px-5 py-4">
-          <p>DevEvent</p>
+          <p>EventHub</p>
         <div className="flex items-center gap-6">
-          <p className="text-sm text-light-200">© 2026 DevEvent. All rights reserved.</p>
+          <p className="text-sm text-light-200">© 2026 EventHub. All rights reserved.</p>
         </div>
       </nav>
     </footer>
