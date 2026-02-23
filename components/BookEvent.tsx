@@ -38,6 +38,7 @@ const BookEvent = ({ eventId, slug }: { eventId: string; slug: string }) => {
             onChange={(e) => setEmail(e.target.value)}
             id="email"
             placeholder="Enter your Email Address"
+            className="rounded-2xl border border-teal-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-teal-500"
           />
           <button type="submit" className="button-submit">
             Book Now
